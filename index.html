@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DownView</title>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.18.3/minified.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/css/ol.css" type="text/css">
+	<link rel="stylesheet" href="./style.css">
+	<link rel="shortcut icon" href="./favicon.ico">
+</head>
+<body>
+	<div class="logo">
+		<img src="img\logo.png" alt="alt"> 
+	</div>
+
+	<svg class = "navi" height="120px" width="120px">
+		<circle cx="60" cy="60" r="50" stroke="white" stroke-width="5" fill="red" />
+		Brak wsparcia dla SVG.
+	</svg> 
+
+	<div class="N"><img src="img\N.png" alt="alt" id="N" name ="dir" onclick="direction('N')"> </div>
+	
+	<div class="S"><img src="img\S.png" alt="alt" id="S" name ="dir" onclick="direction('S')"> </div>
+	
+	<div class="E"><img src="img\E.png" alt="alt" id="E" name ="dir" onclick="direction('E')"> </div>
+	
+	<div class="W"><img src="img\W.png" alt="alt" id="W" name ="dir" onclick="direction('W')"> </div>
+	
+	<div class="C"><img src="img\C.png" alt="alt" id="C" name ="dir" onclick="direction()"> </div>
+
+
+
+	<div class="grid-container">
+		<div class="grid-1">
+			<div class="sidebar">
+			
+				<h3>WARSTWY</h3>
+					<input type="checkbox" value="OSM" onclick="ToogleLayersWMS_Osm()" id="osm-wms"checked>OSM<br>
+					<input type="checkbox" value="Ulice" onclick="ToggleLayersWMS_Ulice()" id="ulice-wms">Ulice<br>
+					<input type="checkbox" value="Działki" onclick="ToggleLayersWMS_Dzialki()" id="dzialki-wms">Działki<br>
+					<input type="checkbox" value="OrtoHD" onclick="ToggleLayersWMS_OrtoHD()" id="ortoHD-wms">OrtoHD<br>
+					<input type="checkbox" value="MiegMap" onclick="ToggleLayersWMS_MiegMap()" id="miegmap-wms">Mapa Miega<br>
+					<input type="checkbox" value="Cieniowanie" onclick="ToggleLayersWMS_Cieniowanie()" id="cieniowanie-wms">Rzeźba terenu<br>
+					
+				
+				<h3>POMIARY</h3>
+					<form class="form-inline">
+						<label for="type">Typ pomiaru:</label> </br> 
+						<div id="okienko">	
+							<select id="type">
+								<option value="length">Długość</option>
+								<option value="area">Powierzchnia</option>
+							</select> </br>
+						</div>
+					<div id = "okienko">
+						<input id = "measureCheckbox" type="checkbox" onclick="ToogleMeasures()">Pomiar</br>
+					</div>
+					</form>
+
+				<h3>POŁOŻENIE</h3>
+				
+					<form>
+						<label for="projection">Projekcja:</label>
+						<div id="okienko">	
+							<select id="projection">
+								<option value="EPSG:4326">EPSG:4326</option>
+								<option value="EPSG:3857">EPSG:3857</option>
+							</select> </br> </br>
+							
+						<label for="precision">Precyzja (0-12)</label> </br>
+						<div id="okienko">
+							<input id="precision" type="number" min="0" max="12" value="4"/>
+						</div>
+					</form>
+					</div>	
+					
+				<div id = "aboutdiv">		
+					<button id="aboutbutton" class onclick="DisplayPopupDiv()">O aplikacji</button>
+				</div>
+			</div>
+		</div>
+			
+		<div class="grid-2">
+			<div id="map" class="map">
+			<div id="mouse-position"></div>
+			<div id="popup-div" class="popup-div-novisible">
+				<div class="control-bar">
+					<div class="btn-close" onclick="ClosePopup()">x</div>
+				</div>
+				<h2 id="pop">O aplikacji Downview</h2>
+				<h3 id="pop">Czym jest i dla kogo jest aplikacja?</h3>
+					<p id="pop">Downview jest projektem niekomercyjnym wykonanym w celach edukacyjnych. Zakres map zawiera się dla powiatu tarnowskiego i
+					okolic, jednakże niektóre usługi (np. OrtoHD, OSM czy działki) dostępne są dla całej Polski. Projekt skupiony jest głównie na rozwiązaniach
+					dla map historycznych. Dostarczane usługi mogą być przydatne dla archeologów, historyków, odkrywców czy detektorystów.</p> 
+				<h3 id="pop">Podstawowe aspekty techniczne aplikacji</h3>
+					<p id="pop">Aplikacja korzysta z biblioteki OpenLayers6 i integruje
+					różne typy danych w postaci <b>warstw</b>. Część map funkcjonuje jako serwisy WMS, a część jako dane magazynowane na hostingu.</p>
+				<h3 id="pop">Podziękowania</h3>
+					<p id = "pop">Autor aplikacji pragnie podziękować za pomoc merytoryczną:</p>
+				<div id="pop">	
+					<ul>
+						<li>D.J.</li>
+						<li>K.Ł.</li>
+						<li>M.C.</li>
+					</ul>
+				</div>
+				
+				<div class="bg"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="./script.js"></script>
+	<script src="./measures.js"></script>
+	<script src="./directions.js"></script>
+</body>
+</html>

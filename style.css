@@ -1,0 +1,270 @@
+*{
+   box-sizing: border-box;
+   font-family: 'Roboto', sans-serif;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto';
+	font-size: 20px;
+}
+
+.sidebar{
+	margin-left: 25px;
+	
+}
+
+.grid-container{
+	display: grid;
+	grid-template-columns: 10vw 90vw;
+	grid-template-rows: 100vh;
+}
+
+.map{
+    width: 100%;
+    height: 100%;
+}
+
+.logo{
+position: absolute;
+bottom: 10px;
+right: 10px;
+z-index: 10;
+}
+
+.btn{
+	width: 150px;
+}
+
+.grid-1{
+	background: #D3D3D3;
+}
+
+.ol-tooltip {
+	position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    color: white;
+    padding: 4px 8px;
+    opacity: 0.7;
+    white-space: nowrap;
+    font-size: 12px;
+    cursor: default;
+    user-select: none;
+}
+
+.ol-tooltip-measure {
+    opacity: 1;
+    font-weight: bold;
+}
+.ol-tooltip-static {
+    background-color: #ffcc33;
+    color: black;
+    border: 1px solid white;
+}
+.ol-tooltip-measure:before,
+.ol-tooltip-static:before{
+    border-top: 6px solid rgba(0, 0, 0, 0.5);
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    margin-left: -7px;
+    left: 50%;
+}
+.ol-tooltip-static:before{
+	border-top-color: #ffcc33;
+}
+
+#aboutbutton{
+	background-color: #f4511e;
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	font-size: 16px;
+	margin: 4px 2px;
+	opacity: 0.6;
+	transition: 0.3s;
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
+
+}
+
+#aboutbutton:hover{
+  opacity: 1;
+}
+
+.popup-div-visible{
+    display: block;
+}
+
+.popup-div-novisible{
+    display: none;
+}
+
+#popup-div{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    z-index: 2;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #000;
+    background-color: transparent;
+    border-radius: 8px;
+	overflow: hidden;
+}
+
+#popup-div .bg{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	opacity: .75;
+	z-index: -1;
+}
+
+#popup-div .control-bar{
+    width: 100%;
+    height: 50px;
+}
+
+#popup-div .control-bar .btn-close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    top: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#pop{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+#mouse-position{
+	position: fixed;
+	top: 95%;
+	left: 50%;
+	z-index:1000;
+	text-decoration: underline;
+}
+
+#aboutdiv{
+	position: absolute;
+  left:22px;
+	bottom: 20px;
+}
+
+#type{
+	width: 85%;
+	height: 25px;
+	text-align:center;
+	border-radius: 5px;
+}
+
+#projection{
+	width: 85%;
+	height: 25px;
+	text-align:center;
+	border-radius: 5px;
+}
+
+#precision{
+	width: 85%;
+	height: 25px;
+	text-align:center;
+	border-radius: 5px;
+}
+
+#okienko{
+	margin-top: 10px;
+	display: block;
+}
+
+
+.navi{
+position: absolute;
+top: 20px;
+right: 20px;
+z-index: 10;
+opacity: 50%;
+}
+
+.N{
+position: absolute;
+top: 23px;
+right: 58px;
+z-index: 11;
+}
+
+.N:hover {
+
+  background: url('img/N_hover.png');
+}
+
+.S{
+position: absolute;
+top: 92px;
+right: 58px;
+z-index: 11;
+height: 37px;
+}
+
+.S:hover {
+
+  background: url('img/S_hover.png');
+}
+
+.E{
+position: absolute;
+top: 57px;
+right: 25px;
+z-index: 11;
+}
+.E:hover {
+
+  background: url('img/E_hover.png');
+}
+.W{
+position: absolute;
+top: 57px;
+right: 91px;
+z-index: 11;
+}
+.W:hover {
+
+  background: url('img/W_hover.png');
+}
+
+
+.C{
+position: absolute;
+top: 57px;
+right: 58px;
+z-index: 11;
+height:40px;
+}
+
+.C:hover {
+
+  background: url('img/C_hover.png');
+}
+
+.ol-rotate{
+	visibility: hidden;
+}
